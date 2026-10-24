@@ -1,0 +1,12 @@
+
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+
+
+MovieTicketBookingSystem-Web/Bookings/bookings.txt
+
+
+MovieTicketBookingSystem-Web/Data/customers.txt

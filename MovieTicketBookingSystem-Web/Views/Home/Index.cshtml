@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Movie Ticket Booking System";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center">
+        <h1 class="display-3 fw-bold">
+            Movie Ticket Booking System
+        </h1>
+
+        <p class="lead mt-3">
+            Book your favorite movies quickly and easily.
+        </p>
+
+        <div class="mt-4">
+            <a asp-controller="Movies"
+               asp-action="Index"
+               class="btn btn-primary btn-lg me-2">
+                View Movies
+            </a>
+
+            <a asp-controller="Booking"
+               asp-action="Index"
+               class="btn btn-success btn-lg">
+                Book Ticket
+            </a>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <h3>Movies</h3>
+                    <p>
+                        View available movies, languages,
+                        duration and ticket prices.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <h3>Easy Booking</h3>
+                    <p>
+                        Select your movie, show and number
+                        of tickets to make a booking.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body text-center">
+                    <h3>Booking History</h3>
+                    <p>
+                        View your previously completed
+                        movie ticket bookings.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

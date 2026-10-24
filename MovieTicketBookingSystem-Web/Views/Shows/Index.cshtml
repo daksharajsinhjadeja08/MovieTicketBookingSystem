@@ -1,0 +1,78 @@
+﻿@model List<MOVIETICKETBOOKINGSYSTEM.Models.Show>
+
+@{
+    ViewData["Title"] = "Shows";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold">Available Shows</h1>
+
+        <p class="text-muted">
+            Select a movie show and book your tickets.
+        </p>
+    </div>
+
+    <div class="row">
+
+        @foreach (var show in Model)
+        {
+            <div class="col-md-4 mb-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body">
+
+                        <h3 class="card-title">
+                            @show.Movie.Title
+                        </h3>
+
+                        <hr />
+
+                        <p>
+                            <strong>Show ID:</strong>
+                            @show.Id
+                        </p>
+
+                        <p>
+                            <strong>Language:</strong>
+                            @show.Movie.Language
+                        </p>
+
+                        <p>
+                            <strong>Theater:</strong>
+                            @show.Theater.Name
+                        </p>
+
+                        <p>
+                            <strong>Location:</strong>
+                            @show.Theater.Location
+                        </p>
+
+                        <p>
+                            <strong>Show Time:</strong>
+                            @show.ShowTime
+                        </p>
+
+                        <p>
+                            <strong>Ticket Price:</strong>
+                            ₹@show.Movie.TicketPrice
+                        </p>
+
+                        <a asp-controller="Booking"
+                           asp-action="Index"
+                           class="btn btn-primary">
+                            Book Ticket
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>

@@ -1,0 +1,204 @@
+
+/* General page styling */
+html {
+    font-size: 16px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    margin-bottom: 60px;
+    background-color: #f5f7fb;
+    color: #263238;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: #172554 !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+    .navbar .navbar-brand,
+    .navbar .nav-link {
+        color: #ffffff !important;
+        font-weight: 500;
+    }
+
+        .navbar .nav-link:hover,
+        .navbar .navbar-brand:hover {
+            color: #bfdbfe !important;
+        }
+
+/* Buttons */
+.btn {
+    border-radius: 6px;
+    padding: 9px 18px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+    .btn-primary:hover {
+        background-color: #1d4ed8;
+        border-color: #1d4ed8;
+    }
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.2);
+}
+
+/* Forms */
+.form-control,
+.form-select {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 10px 12px;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #2563eb;
+    }
+
+/* Movie cards and other Bootstrap cards */
+.card {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 7px 18px rgba(15, 23, 42, 0.12);
+    }
+
+.card-body {
+    padding: 18px;
+}
+
+/* Tables */
+.table {
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+    .table thead th {
+        background-color: #eaf0fb;
+        color: #1e293b;
+    }
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+/* Footer */
+footer {
+    color: #64748b;
+}
+
+/* Responsive text size */
+@media (max-width: 767px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .card-body {
+        padding: 14px;
+    }
+}
+
+
+/* Consistent movie poster sizing */
+.card img {
+    display: block;
+    height: 290px;
+    width: 100%;
+    object-fit: contain;
+    margin: 0 auto 12px;
+}
+
+/* Consistent movie card layout */
+.card {
+    height: 100%;
+}
+
+    .card .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Keep movie booking buttons aligned */
+    .card .btn {
+        align-self: flex-start;
+        margin-top: auto;
+    }
+
+
+/* Booking form improvements */
+form .form-label,
+form label {
+    color: #1e293b;
+    font-weight: 500;
+}
+
+form .form-control,
+form .form-select {
+    min-height: 42px;
+}
+
+/* Subtle highlight for the booking form card */
+.card {
+    border-color: #e2e8f0;
+}
+
+/* Make the booking button easier to notice */
+form .btn {
+    min-height: 42px;
+    font-weight: 600;
+}
+
+
+/* Booking history cards */
+.booking-history-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.06);
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+    .booking-history-card strong {
+        color: #1e293b;
+    }
