@@ -1,0 +1,10 @@
+Movie Ticket Booking System
+Module: Booking Management
+
+Responsibilities:
+- BookingController
+- BookingHistoryController
+- BookingService
+- Booking model
+- Booking views
+- Testing the booking workflow
