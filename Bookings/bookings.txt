@@ -1,0 +1,24 @@
+Customer : Ramesh
+Movie : Pushpa 2
+Theater : PVR
+Show : 6:00 PM
+Tickets : 1
+Amount : 250
+Date : 2026-09-23
+--------------------------------
+Customer : Rahul Patel
+Movie : KGF chapter-2
+Theater : PVR
+Show : 10:00 AM
+Tickets : 2
+Amount : 400
+Date : 2026-10-13
+--------------------------------
+Customer : Jayesh
+Movie : Avengers:End Game
+Theater : INOX
+Show : 6:00 PM
+Tickets : 2
+Amount : 440
+Date : 2026-10-13
+--------------------------------

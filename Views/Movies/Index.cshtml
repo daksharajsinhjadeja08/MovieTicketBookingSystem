@@ -1,0 +1,89 @@
+﻿@model List<MOVIETICKETBOOKINGSYSTEM.Models.Movie>
+
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold">Available Movies</h1>
+        <p class="text-muted">
+            Choose your favorite movie and book your tickets.
+        </p>
+    </div>
+
+    <div class="row">
+
+        @foreach (var movie in Model)
+        {
+            <div class="col-md-4 mb-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body">
+
+                        @if (movie.Id == 1)
+                        {
+                            <img src="~/images/kgf.jpg"
+                                 class="card-img-top mb-3"
+                                 style="height: 350px; width: 100%; object-fit: contain;"
+                                 alt="KGF Chapter 2" />
+                        }
+                        else if (movie.Id == 2)
+                        {
+                            <img src="~/images/pushpa2.jpg"
+                                 class="card-img-top mb-3"
+                                 style="height: 350px; width: 100%; object-fit: contain;"
+                                 alt="Pushpa 2" />
+                        }
+                        else if (movie.Id == 3)
+                        {
+                            <img src="~/images/avengers.jpg"
+                                 class="card-img-top mb-3"
+                                 style="height: 350px; width: 100%; object-fit: contain;"
+                                 alt="Avengers End Game" />
+                        }
+
+                        <h3 class="card-title">
+                            @movie.Title
+                        </h3>
+
+                        <hr />
+
+                        <p>
+                            <strong>Movie ID:</strong>
+                            @movie.Id
+                        </p>
+
+                        <p>
+                            <strong>Language:</strong>
+                            @movie.Language
+                        </p>
+
+                        <p>
+                            <strong>Duration:</strong>
+                            @movie.Duration minutes
+                        </p>
+
+                        <p>
+                            <strong>Ticket Price:</strong>
+                            ₹@movie.TicketPrice
+                        </p>
+
+                        <a asp-controller="Booking"
+                           asp-action="Index"
+                           class="btn btn-primary">
+                            Book Ticket
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>
