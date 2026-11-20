@@ -1,0 +1,238 @@
+﻿@using MOVIETICKETBOOKINGSYSTEM.Models
+
+@{
+    ViewData["Title"] = "Book Ticket";
+
+    var customers = ViewBag.Customers as List<Customer>;
+    var movies = ViewBag.Movies as List<Movie>;
+    var shows = ViewBag.Shows as List<Show>;
+}
+
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold">Book Movie Ticket</h1>
+
+        <p class="text-muted">
+            Select your movie, show and number of tickets.
+        </p>
+    </div>
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <form asp-controller="Booking"
+                  asp-action="Book"
+                  method="post">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body">
+
+                        <h3 class="mb-4">Booking Details</h3>
+
+                        <!-- Customer Name -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Your Name
+                            </label>
+
+                            <input type="text"
+                                   name="customerName"
+                                   class="form-control"
+                                   placeholder="Enter your name"
+                                   required />
+
+                        </div>
+                 
+
+
+                        <!-- Movie -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Movie
+                            </label>
+
+                            <select id="movieSelect"
+                                    class="form-select"
+                                    required>
+
+                                <option value="">
+                                    Select Movie
+                                </option>
+
+                                @foreach (var movie in movies)
+                                {
+                                    <option value="@movie.Id">
+                                        @movie.Title - ₹@movie.TicketPrice
+                                    </option>
+                                }
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Show -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Show
+                            </label>
+
+                            <select id="showSelect"
+                                    name="showId"
+                                    class="form-select"
+                                    required>
+
+                                <option value="">
+                                    Select Movie First
+                                </option>
+
+                                @foreach (var show in shows)
+                                {
+                                    <option value="@show.Id"
+                                            data-movie-id="@show.Movie.Id">
+                                        @show.Movie.Title -
+                                        @show.Theater.Name -
+                                        @show.ShowTime
+                                    </option>
+                                }
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Number of Tickets -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Number of Tickets
+                            </label>
+
+                            <input type="number"
+                                   name="ticketCount"
+                                   class="form-control"
+                                   min="1"
+                                   value="1"
+                                   required />
+
+                        </div>
+
+
+                        <!-- Payment Method -->
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Payment Method
+                            </label>
+
+                            <select class="form-select"
+                                    required>
+
+                                <option value="">
+                                    Select Payment Method
+                                </option>
+
+                                <option value="UPI">
+                                    UPI
+                                </option>
+
+                                <option value="Card">
+                                    Card
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Book Button -->
+
+                        <button type="submit"
+                                class="btn btn-success w-100">
+
+                            Book Ticket
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+
+    <script>
+
+        const movieSelect = document.getElementById("movieSelect");
+        const showSelect = document.getElementById("showSelect");
+
+        const allShows = Array.from(
+            showSelect.options
+        ).map(option => option.cloneNode(true));
+
+
+        movieSelect.addEventListener("change", function() {
+
+            const selectedMovieId = this.value;
+
+            showSelect.innerHTML = "";
+
+
+            if (selectedMovieId === "") {
+
+                const option = document.createElement("option");
+
+                option.textContent = "Select Movie First";
+                option.value = "";
+
+                showSelect.appendChild(option);
+
+                return;
+            }
+
+
+            const defaultOption = document.createElement("option");
+
+            defaultOption.textContent = "Select Show";
+            defaultOption.value = "";
+
+            showSelect.appendChild(defaultOption);
+
+
+            allShows.forEach(function(option) {
+
+                if (
+                    option.dataset.movieId === selectedMovieId
+                ) {
+
+                    showSelect.appendChild(
+                        option.cloneNode(true)
+                    );
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+}
